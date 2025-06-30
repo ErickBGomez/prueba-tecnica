@@ -3,4 +3,10 @@
 .column {
   background-color: colors.$white-25;
   padding: 16px;
+
+  .dayLabel {
+    color: colors.$white;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
 }

@@ -4,7 +4,7 @@ import styles from "./ActivityColumn.module.scss";
 const ActivityColumn = ({ day, activities }) => {
   return (
     <div className={styles.column}>
-      <p>{day}</p>
+      <p className={styles.dayLabel}>{day.toUpperCase()}</p>
 
       {activities.map((activity, index) => (
         <ActivityCard key={index} {...activity} />
