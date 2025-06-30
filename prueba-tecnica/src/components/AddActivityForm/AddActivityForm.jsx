@@ -1,16 +1,7 @@
 import { useContext, useState } from "react";
 import styles from "./AddActivityForm.module.scss";
 import ActivityContext from "../../context/ActivitiesContext";
-
-const days = [
-  { label: "Monday", value: "monday" },
-  { label: "Tuesday", value: "tuesday" },
-  { label: "Wednesday", value: "wednesday" },
-  { label: "Thursday", value: "thursday" },
-  { label: "Friday", value: "friday" },
-  { label: "Saturday", value: "saturday" },
-  { label: "Sunday", value: "sunday" },
-];
+import days from "../../helpers/days";
 
 const AddActivityForm = () => {
   const { dispatch } = useContext(ActivityContext);
@@ -32,7 +23,7 @@ const AddActivityForm = () => {
     if (!values.duration.trim())
       setErrors({ ...errors, duration: "Duration is required" });
 
-    if (values.duration <= 0)
+    if (Number(values.duration) <= 0)
       // Duration must be greater than 0
       setErrors({ ...errors, duration: "Duration must be greater than 0" });
 

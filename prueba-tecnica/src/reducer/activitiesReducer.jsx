@@ -4,7 +4,7 @@ const activitiesReducer = (state, action) => {
       if (state.some((activity) => activity.id === action.newActivity.id))
         return;
 
-      return [...state, ...action.newActivity];
+      return [...state, action.newActivity];
     }
     case "Remove": {
       if (!state.some((activity) => activity.id === action.newActivity.id))

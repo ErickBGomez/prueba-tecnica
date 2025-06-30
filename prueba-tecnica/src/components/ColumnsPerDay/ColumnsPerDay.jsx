@@ -1,35 +1,24 @@
-// import styles from "./ColumnsPerDay.module.scss";
+import { useContext } from "react";
+import days from "../../helpers/days";
+import ActivityColumn from "../ActivityColumn/ActivityColumn";
+import styles from "./ColumnsPerDay.module.scss";
+import ActivityContext from "../../context/ActivitiesContext";
 
-// const days = [
-//   "monday",
-//   "tuesday",
-//   "wednesday",
-//   "thursday",
-//   "friday",
-//   "saturday",
-//   "sunday",
-// ];
+const mappedDays = days.map((day) => day.value);
 
-// const ColumnsPerDay = () => {
-//   const activitiesPlaceholder = [
-//     {
-//       name: "Name 1",
-//       description: "",
-//       duration: 0,
-//       day: "monday",
-//     },
-//   ];
+const ColumnsPerDay = () => {
+  const { state } = useContext(ActivityContext);
 
-//   return (
-//     <div className={styles.columns}>
-//       {days.forEach((day) => {
-//         const activitiesPerDay = activitiesPlaceholder.filter(
-//           (activity) => activity.day === day
-//       )
+  return (
+    <div className={styles.columns}>
+      {mappedDays.map((day) => (
+        <ActivityColumn
+          day={day}
+          activities={state.filter((activity) => activity.day === day)}
+        />
+      ))}
+    </div>
+  );
+};
 
-//       }}
-//     </div>
-//   );
-// };
-
-// export default ColumnsPerDay;
+export default ColumnsPerDay;

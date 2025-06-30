@@ -1,0 +1,8 @@
+@use "../../styles/_colors.scss";
+
+.activity {
+  background-color: colors.$primary;
+  padding: 8px;
+  color: colors.$white;
+  border-radius: 6px;
+}
