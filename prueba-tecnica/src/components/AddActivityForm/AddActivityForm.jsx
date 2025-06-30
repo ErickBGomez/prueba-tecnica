@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styles from "./AddActivityForm.module.scss";
+import ActivityContext from "../../context/ActivitiesContext";
 
 const days = [
   { label: "Monday", value: "monday" },
@@ -12,6 +13,7 @@ const days = [
 ];
 
 const AddActivityForm = () => {
+  const { dispatch } = useContext(ActivityContext);
   const [errors, setErrors] = useState({});
   const [values, setValues] = useState({
     name: "",
@@ -51,6 +53,7 @@ const AddActivityForm = () => {
     }
 
     // Set new value to activities state from context + reducer
+    dispatch({ type: "Add", newActivity: { ...values } });
   };
 
   return (
