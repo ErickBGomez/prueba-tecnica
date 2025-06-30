@@ -18,8 +18,10 @@ const ActivityColumn = ({ day, activities }) => {
       <p className={styles.dayLabel}>{day.toUpperCase()}</p>
       <p className={styles.total}>Total duration: {totalDuration}</p>
 
-      {totalDuration >= 600 && (
-        <p className={styles.warning}>Advertencia: Supera 600 minutos</p>
+      {totalDuration > 600 && (
+        <p className={styles.warning}>
+          Advertencia: Total duraction is over 600 minutes
+        </p>
       )}
 
       <div className={styles.activities}>

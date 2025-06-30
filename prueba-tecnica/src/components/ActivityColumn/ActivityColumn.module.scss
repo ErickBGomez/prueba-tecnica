@@ -15,4 +15,10 @@
     flex-direction: column;
     gap: 8px;
   }
+
+  .warning {
+    color: colors.$warning;
+    font-weight: 600;
+    padding: 8px 0;
+  }
 }
