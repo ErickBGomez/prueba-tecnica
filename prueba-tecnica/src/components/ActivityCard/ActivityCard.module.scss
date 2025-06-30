@@ -5,4 +5,17 @@
   padding: 8px;
   color: colors.$white;
   border-radius: 6px;
+
+  .actions {
+    display: flex;
+    gap: 2px;
+    justify-content: end;
+
+    button {
+      background-color: colors.$white;
+      color: colors.$black;
+      padding: 2px;
+      border-radius: 2px;
+    }
+  }
 }

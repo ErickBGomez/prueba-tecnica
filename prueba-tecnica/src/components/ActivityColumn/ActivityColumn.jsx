@@ -7,8 +7,8 @@ const ActivityColumn = ({ day, activities }) => {
       <p className={styles.dayLabel}>{day.toUpperCase()}</p>
 
       <div className={styles.activities}>
-        {activities.map((activity, index) => (
-          <ActivityCard key={index} {...activity} />
+        {activities.map((activity) => (
+          <ActivityCard key={activity.id} id={activity.id} {...activity} />
         ))}
       </div>
     </div>

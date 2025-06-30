@@ -11,8 +11,9 @@ const ColumnsPerDay = () => {
 
   return (
     <div className={styles.columns}>
-      {mappedDays.map((day) => (
+      {mappedDays.map((day, index) => (
         <ActivityColumn
+          key={index}
           day={day}
           activities={state.filter((activity) => activity.day === day)}
         />

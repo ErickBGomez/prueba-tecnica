@@ -6,11 +6,10 @@ const activitiesReducer = (state, action) => {
 
       return [...state, action.newActivity];
     }
-    case "Remove": {
-      if (!state.some((activity) => activity.id === action.newActivity.id))
-        return;
+    case "Delete": {
+      if (!state.some((activity) => activity.id === action.id)) return;
 
-      return state.filter((activity) => activity.id !== action.newActivity.id);
+      return state.filter((activity) => activity.id !== action.id);
     }
 
     default:
