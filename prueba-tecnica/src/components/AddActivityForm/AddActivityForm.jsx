@@ -4,7 +4,7 @@ import ActivityContext from "../../context/ActivitiesContext";
 import days from "../../helpers/days";
 
 const AddActivityForm = () => {
-  const { dispatch } = useContext(ActivityContext);
+  const { state, dispatch } = useContext(ActivityContext);
   const [errors, setErrors] = useState({});
   const [values, setValues] = useState({
     name: "",
@@ -44,7 +44,15 @@ const AddActivityForm = () => {
     }
 
     // Set new value to activities state from context + reducer
-    dispatch({ type: "Add", newActivity: { ...values } });
+    dispatch({ type: "Add", newActivity: { ...values, id: state.length } });
+
+    // Reset form values
+    setValues({
+      name: "",
+      description: "",
+      duration: "",
+      day: "monday",
+    });
   };
 
   return (
