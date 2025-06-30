@@ -44,3 +44,12 @@ button {
   color: colors.$white;
   background-color: colors.$primary;
 }
+
+input,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+}

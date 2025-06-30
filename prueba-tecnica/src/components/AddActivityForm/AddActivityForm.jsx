@@ -17,34 +17,48 @@ const AddActivityForm = () => {
   };
 
   return (
-    <div className={styles.form}>
-      <form action="/" onSubmit={handleSubmit}>
-        <label htmlFor="name">Activity name:</label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          placeholder="ex. My Activity"
-          required
-        />
+    <div className={styles.addActivity}>
+      <form action="/" onSubmit={handleSubmit} className={styles.form}>
+        <div className={styles.inputGroup}>
+          <label htmlFor="name">Activity name:</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="ex: My Activity"
+            required
+          />
+        </div>
 
-        <label htmlFor="description">Description</label>
-        <textarea
-          required
-          placeholder="ex. This is a description of the activity"
-        ></textarea>
+        <div className={styles.inputGroup}>
+          <label htmlFor="description">Description</label>
+          <textarea
+            required
+            placeholder="ex: This is a description of the activity"
+          ></textarea>
+        </div>
 
-        <label htmlFor="duration">Duration (in minutes)</label>
-        <input type="number" name="duration" id="duration" required />
+        <div className={styles.inputGroup}>
+          <label htmlFor="duration">Duration (in minutes)</label>
+          <input
+            type="number"
+            name="duration"
+            id="duration"
+            placeholder="ex: 60"
+            required
+          />
+        </div>
 
-        <label htmlFor="day">Day</label>
-        <select name="day" id="day" required>
-          {days.map((day, index) => (
-            <option key={index} value={day.value}>
-              {day.label}
-            </option>
-          ))}
-        </select>
+        <div className={styles.inputGroup}>
+          <label htmlFor="day">Day</label>
+          <select name="day" id="day" required>
+            {days.map((day, index) => (
+              <option key={index} value={day.value}>
+                {day.label}
+              </option>
+            ))}
+          </select>
+        </div>
 
         <button type="submit" className={styles.addButton}>
           Add Activity

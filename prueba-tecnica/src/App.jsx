@@ -4,7 +4,7 @@ import { useState } from "react";
 import AddActivityForm from "./components/AddActivityForm/AddActivityForm";
 
 const App = () => {
-  const [showActivity, setShowActivity] = useState(false);
+  const [showActivity, setShowActivity] = useState(true);
 
   return (
     <>

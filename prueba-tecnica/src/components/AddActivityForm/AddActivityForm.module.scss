@@ -1,0 +1,19 @@
+.addActivity {
+  width: 100%;
+  max-width: 500px;
+
+  .form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+
+    .inputGroup {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+}
