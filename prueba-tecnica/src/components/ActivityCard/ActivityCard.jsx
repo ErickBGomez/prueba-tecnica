@@ -8,7 +8,6 @@ const ActivityCard = ({ id, name, description, duration }) => {
   return (
     <div className={styles.activity}>
       <div className={styles.actions}>
-        <button className={styles.editButton}>Edit</button>
         <button
           className={styles.deleteButton}
           onClick={() => dispatch({ type: "Delete", id })}
