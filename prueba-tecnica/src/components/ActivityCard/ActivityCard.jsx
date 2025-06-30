@@ -5,13 +5,18 @@ import ActivityContext from "../../context/ActivitiesContext";
 const ActivityCard = ({ id, name, description, duration }) => {
   const { dispatch } = useContext(ActivityContext);
 
+  const handleDelete = () => {
+    const response = confirm("Are you sure you want to delete this activity?");
+
+    if (response) {
+      dispatch({ type: "Delete", id });
+    }
+  };
+
   return (
     <div className={styles.activity}>
       <div className={styles.actions}>
-        <button
-          className={styles.deleteButton}
-          onClick={() => dispatch({ type: "Delete", id })}
-        >
+        <button className={styles.deleteButton} onClick={handleDelete}>
           Delete
         </button>
       </div>
