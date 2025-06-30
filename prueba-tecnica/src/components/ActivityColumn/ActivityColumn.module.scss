@@ -9,4 +9,10 @@
     font-weight: 600;
     margin-bottom: 8px;
   }
+
+  .activities {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
 }
