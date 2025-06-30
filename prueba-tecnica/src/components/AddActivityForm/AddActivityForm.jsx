@@ -14,29 +14,30 @@ const AddActivityForm = () => {
   });
 
   const validateForm = () => {
+    let errors = {};
+
     // Every field is required
-    if (!values.name.trim()) setErrors({ ...errors, name: "Name is required" });
+    if (!values.name.trim()) errors = { ...errors, name: "Name is required" };
 
     if (!values.description.trim())
-      setErrors({ ...errors, description: "Description is required" });
+      errors = { ...errors, description: "Description is required" };
 
     if (!values.duration.trim())
-      setErrors({ ...errors, duration: "Duration is required" });
+      errors = { ...errors, duration: "Duration is required" };
 
     if (Number(values.duration) <= 0)
       // Duration must be greater than 0
-      setErrors({ ...errors, duration: "Duration must be greater than 0" });
+      errors = { ...errors, duration: "Duration must be greater than 0" };
 
-    if (!values.day) setErrors({ ...errors, day: "Day is required" });
+    if (!values.day) errors = { ...errors, day: "Day is required" };
 
-    return Object.keys(errors).length === 0;
+    setErrors(errors);
+
+    return Object.keys(errors).length > 0;
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    setErrors({}); // Reset errors
-
     // Do not submit if form has errors
     if (validateForm()) {
       alert("Your form has errors. Please fix them before submitting.");
@@ -67,7 +68,10 @@ const AddActivityForm = () => {
             placeholder="ex: My Activity"
             required
             value={values.name}
-            onChange={(e) => setValues({ ...values, name: e.target.value })}
+            onChange={(e) => {
+              setValues({ ...values, name: e.target.value });
+              setErrors({ ...errors, name: null });
+            }}
           />
           <p className={styles.errorMessage}>{errors.name}</p>
         </div>
@@ -78,9 +82,10 @@ const AddActivityForm = () => {
             required
             placeholder="ex: This is a description of the activity"
             value={values.description}
-            onChange={(e) =>
-              setValues({ ...values, description: e.target.value })
-            }
+            onChange={(e) => {
+              setValues({ ...values, description: e.target.value });
+              setErrors({ ...errors, description: null });
+            }}
           ></textarea>
           <p className={styles.errorMessage}>{errors.description}</p>
         </div>
@@ -94,7 +99,10 @@ const AddActivityForm = () => {
             placeholder="ex: 60"
             required
             value={values.duration}
-            onChange={(e) => setValues({ ...values, duration: e.target.value })}
+            onChange={(e) => {
+              setValues({ ...values, duration: e.target.value });
+              setErrors({ ...errors, duration: null });
+            }}
           />
           <p className={styles.errorMessage}>{errors.duration}</p>
         </div>
@@ -106,7 +114,10 @@ const AddActivityForm = () => {
             id="day"
             required
             value={values.day}
-            onChange={(e) => setValues({ ...values, day: e.target.value })}
+            onChange={(e) => {
+              setValues({ ...values, day: e.target.value });
+              setErrors({ ...errors, day: null });
+            }}
           >
             {days.map((day, index) => (
               <option key={index} value={day.value}>
