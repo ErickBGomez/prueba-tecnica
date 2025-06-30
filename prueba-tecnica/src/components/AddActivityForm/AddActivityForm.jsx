@@ -38,7 +38,7 @@ const AddActivityForm = () => {
     setErrors({}); // Reset errors
 
     // Do not submit if form has errors
-    if (!validateForm()) {
+    if (validateForm()) {
       alert("Your form has errors. Please fix them before submitting.");
       return;
     }
@@ -69,6 +69,7 @@ const AddActivityForm = () => {
             value={values.name}
             onChange={(e) => setValues({ ...values, name: e.target.value })}
           />
+          <p className={styles.errorMessage}>{errors.name}</p>
         </div>
 
         <div className={styles.inputGroup}>
@@ -81,6 +82,7 @@ const AddActivityForm = () => {
               setValues({ ...values, description: e.target.value })
             }
           ></textarea>
+          <p className={styles.errorMessage}>{errors.description}</p>
         </div>
 
         <div className={styles.inputGroup}>
@@ -94,6 +96,7 @@ const AddActivityForm = () => {
             value={values.duration}
             onChange={(e) => setValues({ ...values, duration: e.target.value })}
           />
+          <p className={styles.errorMessage}>{errors.duration}</p>
         </div>
 
         <div className={styles.inputGroup}>
@@ -111,6 +114,7 @@ const AddActivityForm = () => {
               </option>
             ))}
           </select>
+          <p className={styles.errorMessage}>{errors.day}</p>
         </div>
 
         <button type="submit" className={styles.addButton}>
