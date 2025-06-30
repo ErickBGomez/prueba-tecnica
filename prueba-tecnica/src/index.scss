@@ -46,10 +46,12 @@ button {
 }
 
 input,
-textarea {
+textarea,
+select {
   font-family: inherit;
   font-size: inherit;
   padding: 8px;
   border-radius: 6px;
   border: none;
+  background-color: colors.$black-75;
 }

@@ -1,6 +1,12 @@
+@use "../../styles/_colors.scss";
+
 .addActivity {
   width: 100%;
   max-width: 500px;
+  background-color: colors.$white-25;
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid colors.$white-50;
 
   .form {
     width: 100%;
