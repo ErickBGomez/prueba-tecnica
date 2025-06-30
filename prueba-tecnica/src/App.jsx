@@ -1,11 +1,16 @@
 import Title from "./components/Title/Title";
-import AddItinerary from "./components/AddActivity/AddActivity";
+import AddActivity from "./components/AddActivity/AddActivity";
+import { useState } from "react";
+import AddActivityForm from "./components/AddActivityForm/AddActivityForm";
 
 const App = () => {
+  const [showActivity, setShowActivity] = useState(false);
+
   return (
     <>
       <Title />
-      <AddItinerary />
+      <AddActivity setShowActivity={setShowActivity} />
+      {showActivity && <AddActivityForm />}
     </>
   );
 };
